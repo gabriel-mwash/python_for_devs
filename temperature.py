@@ -8,7 +8,8 @@ def convert_to_celsius(fahrenheit: float) -> float:
 
     return (fahrenheit - 32.0) * 5.0 / 9.0
 
-
+# kwargs - keyword arguments -> assigning a value to a param name in a fun
+# call
 print(convert_to_celsius(80))
 print(convert_to_celsius(78.8))
 print(convert_to_celsius(10.4))
@@ -112,8 +113,18 @@ def square(num):
     return num * num 
 
 
-
-
+def repeat(s: str, n: int) -> str:
+    """Return s repeated n times, if n is negative, return the empty string.
+    >>> repeat('yes, 4)
+    yesyesyesyes
+    >>> repeat('no', 0)
+    ''
+    >>> repat 'no', -2)
+    ''
+    >>> repeat('yesnomaybe', 3)
+    yesnomaybeyesnomaybeyesnomaybe
+    """
+    return s * n
 
 
 
