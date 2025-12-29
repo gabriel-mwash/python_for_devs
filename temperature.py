@@ -13,6 +13,11 @@ print(convert_to_celsius(80))
 print(convert_to_celsius(78.8))
 print(convert_to_celsius(10.4))
 
+print("80, 78.8, and 10.4 degrees Fahrenheit are equal to ", end="")
+print(convert_to_celsius(80), end=', \n')
+print(convert_to_celsius(78.8), end=', and ')
+print(convert_to_celsius(10.4), end=' Celsius.\n')
+
 
 def pie_percent(n: int) -> int:
     """Precondition: n > 0
