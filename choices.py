@@ -110,3 +110,30 @@ def convert_temperatures(t, target: str):
     return
 
 
+
+
+"""
+git config --global user.name "gabu"
+git config --global user.email "gabu@email"
+
+git init -> initialize a file
+echo "this is a readme file" >> README.md
+git add .
+git commit -m "commit message"
+
+git branch -m master main
+
+git remote add origin "git@github.com:gabriel-mwash/repo.git"
+git push -u origin main
+
+"""
+
+
+
+
+
+
+
+
+
+
