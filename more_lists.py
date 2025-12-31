@@ -24,3 +24,9 @@ triangle_length = 7
 for i in list(range(0, triangle_length)):
     print("T" * i)
 
+for width in range(1, 8):
+    print("T" * width)
+
+for width in range(1, 8):
+    print(' ' * (7 - width), "T" * width, sep="")
+
