@@ -78,4 +78,14 @@ while rat_1_weight <= (1.25 * rat_1_weight) :
     week_count = week_count + 1
 
 print(week_count)
-    
+
+
+week = 1
+while rat_1_weight[week] / rat_1_weight[0] -1 < .25:
+    week += 1
+print(week)
+
+week = 0
+while rat_1_weight[week] / rat_2_weight[week] - 1 < .10:
+    week += 1
+print(week)
