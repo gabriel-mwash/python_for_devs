@@ -1,7 +1,7 @@
 def least_likely(sub_atomic_particles: dict) -> str:
     """return the sub atomic particle that is the least likely to be observed"
     >>> least_likely({"proton":0.2, "muon":0.03})
-    >>> "muon"
+    "muon"
     """
     probabilities = list(sub_atomic_particles.values())
     least_probable = min(probabilities)
@@ -12,7 +12,19 @@ def least_likely(sub_atomic_particles: dict) -> str:
 
 
 if __name__ == "__main__":
-    print(least_likely({"proton": 0.2, "muon": 0.03})
-          )
+    print(least_likely({"proton": 0.2, "muon": 0.03}))
         
     
+
+
+# code answer
+
+def least_likey2(particle_to_probability: dict) -> str:
+    smallest = 1
+    name = ""
+    for particle in particle_to_probabilityy:
+        probability = particle_to_probability[particle]
+        if probability < smallest:
+            smallest = probability
+            name = particle
+    return particle
