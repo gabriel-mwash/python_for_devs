@@ -11,6 +11,9 @@ def read_authors_name(file_list: List[str]) -> Set[str]:
         author_name = line_content[1]
 
         author_list.add(author_name)
-        return author_list
+    print(author_list)
         
             
+if __name__ == "__main__":
+    read_authors_name(["author1.txt", "author2.txt", "author3.txt", "author4.txt"])
+    
