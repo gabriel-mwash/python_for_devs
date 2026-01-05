@@ -28,10 +28,35 @@ def find_two_smallest(L: list[float]) -> tuple[int, int]:
 
 
 
+def find_two_smallestv2(L: list) -> tuple[int, int]:
+    """ return a tuple of the indices of two smalles values in list L
+    >>> find_two_smallestv2([6, 5, 7, 3, 3, 5, 9])
+    (0, 2)
+    """
+    temp_list = sorted(L)
+    smallest = temp_list[0]
+    i = 1
+
+    while len(L) > 2 and i < len(L):
+        for value in temp_list:
+            if value == smallest:
+                i += 1
+                continue
+            else:
+                next_smallest = value
+                break
+            break
+        break
+    return (temp_list.index(smallest), temp_list.index(next_smallest))
+
+
+
 if __name__ == "__main__":
-    import time
-    t1 = time.perf_counter()
-    items = [809, 834, 477, 478, 307, 122, 96, 102, 324, 476]
-    print(find_two_smallest(items))
-    t2 = time.perf_counter()
-    print("sorted list took {:.2f}ms".format((t2 - t1) * 1000)) 
+##    from doctest import testmod
+##    testmod()
+    items = [6, 5, 7, 3, 3, 5, 9]
+    print(find_two_smallestv2(items))
+     
+
+
+
