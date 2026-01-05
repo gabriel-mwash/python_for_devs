@@ -3,8 +3,14 @@ def find_two_smallest(L: list[float]) -> tuple[int, int]:
     >>> items = [809, 834, 477, 478, 307, 122, 96, 102, 324, 476]
     >>> find_two_smallest(items)
     (6, 7)
-    >>> items == items
-    True
+    >>> find_two_smallest([3, 1])
+    (1, 0)
+    >>> find_two_smallest([4, 2, 1, 0])
+    (3, 2)
+    >>> find_two_smallest([6])
+    'less or no values in list'
+    >>> find_two_smallest([])
+    'less or no values in list'
     """
 
     # keep track of the indices of the two smallest values found so far
@@ -14,6 +20,10 @@ def find_two_smallest(L: list[float]) -> tuple[int, int]:
 
     # set min1 and min2 to the indices of the smallest and next-smallest
     # values of the beginning of l
+
+
+    if len(L) < 2:
+        return "less or no values in list"
 
     if L[0] < L[1]:
         min1, min2 = 0, 1
