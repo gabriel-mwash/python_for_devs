@@ -26,6 +26,9 @@ def find_two_smallest(L: List[float]) -> Tuple[int, int]:
     next_smallest = min(L)
     min2 = L.index(next_smallest)
 
+    if next_smallest == smallest:
+        L.remove(smallest)
+
     # put samallest back into L
     L.insert(min1, smallest)
 
