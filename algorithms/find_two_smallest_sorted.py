@@ -24,3 +24,14 @@ def find_two_smallest(L: list[float]) -> tuple[int, int]:
     
     # return the two indices
     return (min1, min2)
+
+
+
+
+if __name__ == "__main__":
+    import time
+    t1 = time.perf_counter()
+    items = [809, 834, 477, 478, 307, 122, 96, 102, 324, 476]
+    print(find_two_smallest(items))
+    t2 = time.perf_counter()
+    print("sorted list took {:.2f}ms".format((t2 - t1) * 1000)) 
