@@ -50,7 +50,7 @@ def dutch_flagv2(L: str) -> list[str]:
     # the index of the first unexamined color
     start_unknown = 0
 
-    # the indes of the last unexamined color
+    # the index of the last unexamined color
     end_unknown = len(color_list) - 1
 
     print(color_list)
