@@ -1,4 +1,4 @@
-from cards import Card
+from cards_proj.src.cards import Card
 
 
 def test_field_access() -> None:
