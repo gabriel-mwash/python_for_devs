@@ -7,6 +7,14 @@ NUM_DIGITS = 3
 MAX_GUESSES = 10
 
 
+def player_guess(numGuesses) -> str:
+    print(f"Guess #{numGuesses}")
+    guess = ""
+    while len(guess) != NUM_DIGITS or not guess.isdecimal():
+        guess = input("> ")
+    return guess
+
+
 def main() -> None:
     print("""Bagles, a deductive logic game.
           I am thinking of a {}-digit no with no repeated digits
@@ -22,17 +30,12 @@ def main() -> None:
     while True:
         # stores the secret no the player needs to guess
         secretNum = getSecretNum()
-        print(" I have thought of a number. ")
+        print(f" I have thought of a {NUM_DIGITS} number. ")
         print("You have {} guesses to get it ". format(MAX_GUESSES))
 
         numGuesses = 1
-        while numGuesses <= MAX_GUESSES:
-            guess = ""
-            # keep looping until they enter a vlid guess:
-            while len(guess) != NUM_DIGITS or not guess.isdecimal():
-                print("Guess #{}: ".format(numGuesses))
-                guess = input("> ")
-
+        while numGuesses <= MAX_GUESSES:  # calls guess no of times
+            guess = player_guess(numGuesses)
             clues = getClues(guess, secretNum)
             print(clues)
             numGuesses += 1
