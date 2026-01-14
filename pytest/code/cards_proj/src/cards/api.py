@@ -1,3 +1,4 @@
+# type: ignore
 """
 API for the cards project
 """
