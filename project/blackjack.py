@@ -3,10 +3,10 @@ import sys
 
 
 # set up the constants
-HEARTS = chr(9829)
-DIAMONDS = chr(9830)
-SPADES = chr(9824)
-CLUBS = chr(9827)
+HEARTS = chr(9829)  # character 9829 is'♥'
+DIAMONDS = chr(9830)  # character 9830 is '♦'
+SPADES = chr(9824)  # character is 9824 is '♠'
+CLUBS = chr(9827)  # character 9827 is '♣'
 
 
 # (A list of chr codes )
@@ -37,7 +37,7 @@ def main():
             sys.exit()
 
         # let the player enter their bet for this round:
-        print("Money", money)
+        print("Money:", money)
         bet = getBet(money)
 
         # Give the dealer and player two cards from the deck each:
@@ -46,7 +46,7 @@ def main():
         playerHand = [deck.pop(), deck.pop()]
 
         # handle player actions
-        print("Bet: ", bet)
+        print("Bet:", bet)
         while True:  # keep looping until players stands or busts.
             displayHands(playerHand, dealerHand, False)
             print()
@@ -75,9 +75,9 @@ def main():
                 print("you drew a {} of {}.".format(rank, suit))
                 playerHand.append(newCard)
 
-            if getHandValue(playerHand) > 21:
-                # the player has busted
-                continue
+                if getHandValue(playerHand) > 21:
+                    # the player has busted
+                    continue
 
             if move in ("S", "D"):
                 # stand/doubling down stops the player's turn.
@@ -120,7 +120,7 @@ def main():
 
 def getBet(maxBet):
     """ ask the player how much they want to bet for this round."""
-    while True:
+    while True:  # keep asking until they enter a valid amount
         print("How much do you bet? (1-{}, or QUIT)".format(maxBet))
         bet = input("> ").upper().strip()
         if bet == "QUIT":
@@ -160,7 +160,7 @@ def displayHands(playerHand, dealerHand, showDealerHand):
         displayCards([BACKSIDE] + dealerHand[1:])
 
         # show the player's cards
-        print("PLAYER", getHandValue(playerHand))
+        print("PLAYER:", getHandValue(playerHand))
         displayCards(playerHand)
 
 
@@ -192,10 +192,10 @@ def getHandValue(cards):
 
 def displayCards(cards):
     """ display all the cards in the card list."""
-    rows = ["", "", "", "", ""]  # the test display on each row
+    rows = [" ", " ", " ", " ", " "]  # the test display on each row
 
     for i, card in enumerate(cards):
-        rows[0] += " __ "  # print the top line of the card
+        rows[0] += " ___ "  # print the top line of the card
 
         if card == BACKSIDE:
             # print a card's back:
@@ -207,7 +207,7 @@ def displayCards(cards):
             rank, suit = card  # card is a tuple ds
             rows[1] += "|{} | ".format(rank.ljust(2))
             rows[2] += "| {} | ".format(suit)
-            rows[1] += "|_{}| ".format(rank.rjust(2, "_"))
+            rows[3] += "|_{}| ".format(rank.rjust(2, "_"))
 
     # print each row on the screen
     for row in rows:
