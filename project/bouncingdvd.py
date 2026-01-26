@@ -38,6 +38,21 @@ Y = "y"
 DIR = "direction"
 
 
+def moveLogo(logo) -> None:
+    if logo[DIR] == UP_RIGHT:
+        logo[X] += 2
+        logo[Y] -= 1
+    elif logo[DIR] == UP_LEFT:
+        logo[X] -= 2
+        logo[Y] -= 1
+    elif logo[DIR] == DOWN_RIGHT:
+        logo[X] += 2
+        logo[Y] += 1
+    elif logo[DIR] == DOWN_LEFT:
+        logo[X] -= 2
+        logo[Y] += 1
+
+
 def main():
     bext.clear()
 
@@ -49,13 +64,14 @@ def main():
                       Y: random.randint(1, HEIGHT - 4),
                       DIR: random.choice(DIRECTIONS)})
         if logos[-1][X] % 2 == 1:
-            # make sure X is even so it can it the corner
+            # make sure X is even so that it can hit the corner
             logos[-1][X] -= 1
     cornerBounces = 0  # count how many times a loog hits a corner
     while True:  # main program loop
-        for logo in logos:
+        for logo in logos:  # handle each logo in the logo list
+            # erase the logo's current location
             bext.goto(logo[X], logo[Y])
-            print("    ", end="")
+            print("   ", end="")
 
             originalDirection = logo[DIR]
 
@@ -72,6 +88,7 @@ def main():
             elif logo[X] == WIDTH - 3 and logo[Y] == HEIGHT - 1:
                 logo[DIR] = UP_LEFT
                 cornerBounces += 1
+
 
             # see if the logo bounces off the left edge
             elif logo[X] == 0 and logo[DIR] == UP_LEFT:
@@ -104,18 +121,19 @@ def main():
 
             # move the logo (x moves by 2 because the terminal
             # characters are twice as all as they are wide.)
-            if logo[DIR] == UP_RIGHT:
-                logo[X] += 2
-                logo[Y] -= 1
-            elif logo[DIR] == UP_LEFT:
-                logo[X] -= 2
-                logo[Y] -= 1
-            elif logo[DIR] == DOWN_RIGHT:
-                logo[X] += 2
-                logo[Y] += 1
-            elif logo[DIR] == DOWN_LEFT:
-                logo[X] -= 2
-                logo[Y] += 1
+            moveLogo(logo)
+            # if logo[DIR] == UP_RIGHT:
+            #     logo[X] += 2
+            #     logo[Y] -= 1
+            # elif logo[DIR] == UP_LEFT:
+            #     logo[X] -= 2
+            #     logo[Y] -= 1
+            # elif logo[DIR] == DOWN_RIGHT:
+            #     logo[X] += 2
+            #     logo[Y] += 1
+            # elif logo[DIR] == DOWN_LEFT:
+            #     logo[X] -= 2
+            #     logo[Y] += 1
 
         # display no of corner bounces:
         bext.goto(5, 0)
